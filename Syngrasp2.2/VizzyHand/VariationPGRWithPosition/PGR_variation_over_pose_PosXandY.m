@@ -10,7 +10,7 @@ obj0 = obj;
 hand0 = VizzyHandModel;
 hand0.S = hand.S;
 %PGRtypes = ["BF", "H2", "H3", "H4"]; % PGR different types to be computed
-PGRtypes = ['BF'];
+PGRtypes = ["BF"];
 x = 65:3:85;
 y = -25:4:4;
 
@@ -23,8 +23,8 @@ z_star=1.96;
 sigma_=10;
 MOE = 5;
 number_of_samples = ceil((z_star*sigma_/MOE)^2);
-delta_x = 2*3;
-delta_y= 2*4;
+delta_x = 3;
+delta_y= 4;
 delta_ang = 2*1.6*pi/180;
 %%
 for i = 1: n_rows
@@ -33,15 +33,15 @@ for i = 1: n_rows
     for j = 1: n_col
         % Reset hand and obj
         
-        rand_x = randn(number_of_samples);
+        rand_x = randn(1,number_of_samples);
         my_x_values = x(i)+delta_x*rand_x/3;
-        rand_y = randn(number_of_samples);
+        rand_y = randn(1,number_of_samples);
         my_y_values = y(i)+delta_y*rand_y/3;
-        rand_rot_x = randn(number_of_samples);
+        rand_rot_x = randn(1,number_of_samples);
         my_rot_x_values = delta_ang*rand_rot_x/3;
-        rand_rot_y = randn(number_of_samples);
+        rand_rot_y = randn(1,number_of_samples);
         my_rot_y_values = delta_ang*rand_rot_y/3;
-        rand_rot_z = randn(number_of_samples);
+        rand_rot_z = randn(1,number_of_samples);
         my_rot_z_values = delta_ang*rand_rot_z/3;
         for x_pos=my_x_values
             for y_pos=my_y_values
